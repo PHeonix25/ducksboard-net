@@ -1,0 +1,15 @@
+*.user
+*.suo
+*.pidb
+*.userprefs
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.vsmdi
+*.DS_Store
+[Tt]humbs.db
+*.resharper
+/_ReSharper.*
+/*/[Oo]bj/
+/*/[Bb]in/
