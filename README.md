@@ -21,4 +21,6 @@ You can also push multiple items:
 
     Api.Counters.Push(ID, new Counter[] { counter1, counter2 }, (result, error, cancelled) => { /* DONE */ });
 
+### And the other widgets?
+
 More examples are available in the Ducksboard.Console project.
