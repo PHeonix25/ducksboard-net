@@ -6,24 +6,17 @@ namespace Ducksboard
 {
     public abstract class DucksboardEndpoint
     {
-        private DucksboardClient _ducksboardClient;
-
-        internal DucksboardEndpoint()
-        {
-        }
+        private DucksboardClient Client { get { return DucksboardClient.Instance; } }
 
         protected void Push(int id, object obj, Action<string, Exception, bool> callback)
         {
-            if (_ducksboardClient == null)
-                _ducksboardClient = new DucksboardClient();
-
-            _ducksboardClient.UploadStringCompleted += (sender, e) => {
+            Client.UploadStringCompleted += (sender, e) => {
                 callback(e.Result, e.Error, e.Cancelled);
-                _ducksboardClient.UploadStringCompleted -= (sender as UploadStringCompletedEventHandler);
+                Client.UploadStringCompleted -= (sender as UploadStringCompletedEventHandler);
             };
-            string json = JsonConvert.SerializeObject(obj, Formatting.None, _ducksboardClient.JsonSerializerSettings);
+            var json = JsonConvert.SerializeObject(obj, Formatting.None, Client.JsonSerializerSettings);
             //Console.WriteLine(json);
-            _ducksboardClient.UploadStringAsync(new Uri(_ducksboardClient.BaseAddress + id + "/"), json);
+            Client.UploadStringAsync(new Uri(Client.BaseAddress + id + "/"), json);
         }
     }
 }

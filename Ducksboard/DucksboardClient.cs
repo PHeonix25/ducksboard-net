@@ -7,7 +7,12 @@ namespace Ducksboard
     internal class DucksboardClient : WebClient
     {
         private static string _apiKey;
-        private readonly CredentialCache _credentialCache;
+
+        private static DucksboardClient _ducksboardClient;
+        internal static DucksboardClient Instance
+        {
+            get { return _ducksboardClient ?? (_ducksboardClient = new DucksboardClient()); }
+        }
 
         public JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings {
             Error = (sender, e) => { throw e.ErrorContext.Error; },
@@ -18,8 +23,7 @@ namespace Ducksboard
         public DucksboardClient()
         {
             BaseAddress = "https://push.ducksboard.com/values/";
-            _credentialCache = new CredentialCache {{new Uri(BaseAddress), "Basic", new NetworkCredential(_apiKey, "~")}};
-            Credentials = _credentialCache;
+            Credentials = new CredentialCache { { new Uri(BaseAddress), "Basic", new NetworkCredential(_apiKey, "~") } };
         }
 
         internal static void Init(string apiKey)
