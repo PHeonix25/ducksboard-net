@@ -6,6 +6,8 @@ namespace Ducksboard
 {
     public class CountersEndpoint : DucksboardEndpoint, IDucksboardEndpoint
     {
+        internal CountersEndpoint() { }
+
         #region IDucksboardEndpoint Members
 
         public void Push(int id, Base request, Action<string, Exception, bool> callback)
@@ -23,6 +25,8 @@ namespace Ducksboard
 
     public class GaugesEndpoint : DucksboardEndpoint, IDucksboardEndpoint
     {
+        internal GaugesEndpoint() { }
+
         #region IDucksboardEndpoint Members
 
         public void Push(int id, Base request, Action<string, Exception, bool> callback)
@@ -40,6 +44,8 @@ namespace Ducksboard
 
     public class GraphsEndpoint : DucksboardEndpoint, IDucksboardEndpoint
     {
+        internal GraphsEndpoint() { }
+
         #region IDucksboardEndpoint Members
 
         public void Push(int id, Base request, Action<string, Exception, bool> callback)
@@ -57,6 +63,7 @@ namespace Ducksboard
 
     public class TimelinesEndpoint : DucksboardEndpoint, IDucksboardEndpoint
     {
+        internal TimelinesEndpoint() { }
 
         #region IDucksboardEndpoint Members
 
@@ -75,6 +82,8 @@ namespace Ducksboard
 
     public class ImagesEndpoint : DucksboardEndpoint, IDucksboardEndpoint
     {
+        internal ImagesEndpoint() { }
+
         #region IDucksboardEndpoint Members
 
         public void Push(int id, Base request, Action<string, Exception, bool> callback)
