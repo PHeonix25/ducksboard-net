@@ -6,7 +6,7 @@ namespace Ducksboard
 {
     public abstract class DucksboardEndpoint
     {
-        private DucksboardClient Client { get { return DucksboardClient.Instance; } }
+        private static DucksboardClient Client { get { return DucksboardClient.Instance; } }
 
         protected void Push(int id, object obj, Action<string, Exception, bool> callback)
         {
