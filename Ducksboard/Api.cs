@@ -3,13 +3,9 @@
     public class Api
     {
         private static CountersEndpoint _countersEndpoint;
-
         private static GaugesEndpoint _gaugesEndpoint;
-
         private static GraphsEndpoint _graphsEndpoint;
-
         private static TimelinesEndpoint _timelineEndpoint;
-
         private static ImagesEndpoint _imagesEndpoint;
 
         public static CountersEndpoint Counters
@@ -41,5 +37,7 @@
         {
             DucksboardClient.Init(apiKey);
         }
+
+        private Api() { }
     }
 }

@@ -20,7 +20,7 @@ namespace Ducksboard
             DefaultValueHandling = DefaultValueHandling.Ignore
         };
 
-        public DucksboardClient()
+        private DucksboardClient()
         {
             BaseAddress = "https://push.ducksboard.com/values/";
             Credentials = new CredentialCache { { new Uri(BaseAddress), "Basic", new NetworkCredential(_apiKey, "~") } };

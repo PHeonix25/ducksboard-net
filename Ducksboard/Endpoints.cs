@@ -57,9 +57,6 @@ namespace Ducksboard
 
     public class TimelinesEndpoint : DucksboardEndpoint, IDucksboardEndpoint
     {
-        internal TimelinesEndpoint()
-        {
-        }
 
         #region IDucksboardEndpoint Members
 
